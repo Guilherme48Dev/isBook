@@ -1,0 +1,12 @@
+.Logo {
+  flex: 1;
+  display: flex;
+  padding: 10px;
+  justify-content: center; 
+  align-items: center;
+}
+
+.logo-img {
+  width: 140px;
+  height: 140px;
+}
