@@ -4,39 +4,27 @@ nav {
   justify-content: center;
 }
 
-ul {
-  margin: 0px;
-  padding: 0px;
-}
-
-li {
-  list-style: none;
-  display: flex;
-}
-
 p:hover {
-    background: linear-gradient(90deg, #a3107a 35%, #995aec);
-    -webkit-background-clip: text;
-    background-clip: text; 
-    -webkit-text-fill-color: transparent; 
+  background: linear-gradient(90deg, #a3107a 35%, #995aec);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-
 
 .opcoes {
   display: flex;
+  margin: 0;
+  padding: 0;
 }
 
 .opcao {
-    min-width: 120px;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100%;
-    padding: 0 5px;
-    cursor: pointer;  
+  min-width: 120px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 0 5px;
+  cursor: pointer;
 }
-
-
-
