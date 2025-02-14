@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Header from "./componentes/Header";
 import Menu from "./componentes/Menu";
+import Pesquisa from "./componentes/Pesquisa";
 
 const AppCtn = styled.div`
   width: 100vw;
@@ -13,6 +14,7 @@ function App() {
     <AppCtn>
       <Header />
       <Menu />
+      <Pesquisa />
     </AppCtn>
   );
 }
