@@ -12,6 +12,7 @@ const IconesCtn = styled.div`
 
 const Icons = styled.img`
   margin-right: 24px;
+  width: 36px;
 `;
 
 function Icones() {
