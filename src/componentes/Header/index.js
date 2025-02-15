@@ -5,7 +5,6 @@ import styled from "styled-components";
 const CtnHeader = styled.header`
   background-color: white;
   width: 100%;
-  margin: 0;
   display: flex;
   align-items: center;
   position: relative;

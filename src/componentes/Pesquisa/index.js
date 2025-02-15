@@ -2,22 +2,31 @@ import styled from "styled-components";
 import Input from "../Input";
 import { useState } from "react";
 import { Livros } from "./dados";
+import Fuse from "fuse.js";
+
+const fuse = new Fuse(Livros, {
+  keys: ["titulo"],
+  threshold: 0.3,
+  ignoreLocation: true,
+  includeScore: true,
+});
 
 const PesquisaCtn = styled.section`
-  color: #000;
+  color: #fff;
   text-align: center;
-  padding: 84px 0;
-  height: 280px;
+  height: auto;
   width: 100%;
+  margin-bottom: 180px;
 `;
+
 const Titulo = styled.h2`
-  margin-top: 24px;
   margin-bottom: 0px;
-  color: #000;
+  color: #fff;
   font-size: 48px;
   text-align: center;
   width: 100%;
 `;
+
 const Subtitulo = styled.h3`
   font-size: 20px;
   font-weight: 400;
@@ -51,13 +60,11 @@ function Pesquisa() {
       <Titulo>O que deseja ler hoje?</Titulo>
       <Subtitulo>Fique a vontade para se aventurar nos livros</Subtitulo>
       <Input
-        placeholder="Digite título do livro"
+        placeholder="Digite título do livro..."
         onBlur={(evento) => {
-          const textoDigitado = evento.target.value;
-          const resultadoPesquisa = Livros.filter((livro) =>
-            livro.titulo.includes(textoDigitado)
-          );
-          setPesquisa(resultadoPesquisa);
+          const textoDigitado = evento.target.value.toLowerCase();
+          const resultadoPesquisa = fuse.search(textoDigitado);
+          setPesquisa(resultadoPesquisa.map((livro) => livro.item));
         }}
       />
       {pesquisa.map((livro) => (
