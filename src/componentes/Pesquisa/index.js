@@ -58,7 +58,7 @@ function Pesquisa() {
   return (
     <PesquisaCtn>
       <Titulo>O que deseja ler hoje?</Titulo>
-      <Subtitulo>Fique a vontade para se aventurar nos livros</Subtitulo>
+      <Subtitulo>Fique à vontade para se aventurar nos livros</Subtitulo>
       <Input
         placeholder="Digite título do livro..."
         onBlur={(evento) => {
