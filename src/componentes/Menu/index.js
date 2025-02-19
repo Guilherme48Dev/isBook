@@ -1,10 +1,10 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const MenuCtn = styled.nav`
   background-color: rgb(252, 248, 244);
   display: flex;
   justify-content: center;
-  margin-bottom: 180px;
   p:hover {
     background: linear-gradient(90deg, #a3107a 35%, #995aec);
     -webkit-background-clip: text;
@@ -31,16 +31,19 @@ const Opcao = styled.li`
   cursor: pointer;
 `;
 
-const textOpcoes = ["Categorias", "Favoritos", "Minha estante"];
+const textOpcoes = ["Categorias", "Favoritos", "Estante"];
+
 
 function Menu() {
   return (
     <MenuCtn>
       <Opcoes>
         {textOpcoes.map((texto) => (
-          <Opcao>
-            <p>{texto}</p>
-          </Opcao>
+          <Link to={`/${texto.toLowerCase()}`}>
+            <Opcao>
+              <p>{texto}</p>
+            </Opcao>
+          </Link>
         ))}
       </Opcoes>
     </MenuCtn>

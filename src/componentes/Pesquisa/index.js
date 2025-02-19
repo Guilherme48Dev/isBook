@@ -1,15 +1,9 @@
 import styled from "styled-components";
 import Input from "../Input";
-import { useState } from "react";
-import { Livros } from "./dados";
-import Fuse from "fuse.js";
+import { useEffect, useState } from "react";
 
-const fuse = new Fuse(Livros, {
-  keys: ["titulo"],
-  threshold: 0.3,
-  ignoreLocation: true,
-  includeScore: true,
-});
+import Fuse from "fuse.js";
+import { getLivros } from "../../servicos/livros";
 
 const PesquisaCtn = styled.section`
   color: #fff;
@@ -17,10 +11,11 @@ const PesquisaCtn = styled.section`
   height: auto;
   width: 100%;
   margin-bottom: 180px;
+  padding: 48px 0px;
 `;
 
 const Titulo = styled.h2`
-  margin-bottom: 0px;
+  margin: 0px;
   color: #fff;
   font-size: 48px;
   text-align: center;
@@ -54,6 +49,23 @@ const Resultado = styled.div`
 
 function Pesquisa() {
   const [pesquisa, setPesquisa] = useState([]);
+  const [livros, setLivros] = useState([]);
+
+  useEffect(() => {
+    fetchLivros();
+  }, []);
+
+  async function fetchLivros() {
+    const livrosDaApi = await getLivros();
+    setLivros(livrosDaApi);
+  }
+
+  const fuse = new Fuse(livros, {
+    keys: ["titulo"],
+    threshold: 0.3,
+    ignoreLocation: true,
+    includeScore: true,
+  });
 
   return (
     <PesquisaCtn>
