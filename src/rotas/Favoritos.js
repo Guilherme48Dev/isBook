@@ -1,5 +1,6 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
-import Pesquisa from "../componentes/Pesquisa";
+import { getFavoritos } from "../servicos/favoritos";
 
 const AppCtn = styled.div`
   width: auto;
@@ -8,9 +9,22 @@ const AppCtn = styled.div`
 `;
 
 function Favoritos() {
+  const [favoritos, setFavoritos] = useState([])
+
+  async function fatchFavorito() {
+    const favoritosDaApi = await getFavoritos()
+    setFavoritos(favoritosDaApi)
+  }
+
+  useEffect(() => {
+    fatchFavorito()
+  }, [])
+
   return (
     <AppCtn>
-      <Pesquisa />
+      {favoritos.map(favorito => (
+        <p>{favorito.titulo}</p>
+      ))}
     </AppCtn>
   );
 }
