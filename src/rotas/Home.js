@@ -9,6 +9,10 @@ const AppCtn = styled.div`
   background: linear-gradient(to right, #fbc2eb 35%, #a6c1ee);
 `;
 
+const Espaco = styled.div`
+  height : 140px;
+`;
+
 function Home() {
   return (
     <AppCtn>
@@ -22,6 +26,7 @@ function Home() {
           "https://m.media-amazon.com/images/I/61owA5ey3iL._SY445_SX342_.jpg"
         }
       />
+      <Espaco />
     </AppCtn>
   );
 }
